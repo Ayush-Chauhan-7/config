@@ -21,7 +21,7 @@ void fcaller1(){
         execlp("/bin/bash","sh","bash1.sh",NULL);
         // sleep(10);
     }
-    else{
+    else if (pid1 > 0){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec+e1.tv_nsec-s1.tv_nsec);
@@ -41,7 +41,7 @@ void fcaller2(){
         execlp("/bin/bash","sh","bash2.sh",NULL);
         // sleep(10);
     }
-    else{
+    else(pid2 > 0){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec+e1.tv_nsec-s1.tv_nsec);
@@ -61,7 +61,7 @@ void fcaller3(){
         execlp("/bin/bash","sh","bash3.sh",NULL);
         // sleep(10);
     }
-    else{
+    else if(pid3 > 0){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec+e1.tv_nsec-s1.tv_nsec);
@@ -91,6 +91,9 @@ int main(){
 
     else if(pid3==0 && pid2!=0 && pid1!=0){
         fcaller3();
+    }
+    else{
+        printf("Exit\n");
     }
 
 }
