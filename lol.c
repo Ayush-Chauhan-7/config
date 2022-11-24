@@ -41,7 +41,7 @@ void fcaller2(){
         execlp("/bin/bash","sh","bash2.sh",NULL);
         // sleep(10);
     }
-    else(pid2 > 0){
+    else if(pid2 > 0){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec+e1.tv_nsec-s1.tv_nsec);
