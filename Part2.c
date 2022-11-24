@@ -21,7 +21,7 @@ void child(char c, FILE *file) {
 
     clock_gettime(CLOCK_REALTIME, &start);
     if (rc == 0) {
-        execl("/bin/sh","sh","/home/SecretProject/bashscript.sh",NULL);
+        execl("/bin/sh","sh","bash1.sh",NULL);
     }
     else if(rc < 0){
         fprintf(stderr, "fork failed\n");
@@ -44,7 +44,7 @@ void child(char c, FILE *file) {
     struct timespec start, end;
     clock_gettime(CLOCK_REALTIME, &start);
     if (rc == 0) {
-        execl("/bin/sh","sh","/home/SecretProject/bashscript2.sh",NULL);
+        execl("/bin/sh","sh","bash2.sh",NULL);
     } 
     else if(rc < 0){
         fprintf(stderr, "fork failed\n");
@@ -70,7 +70,7 @@ void child(char c, FILE *file) {
 
     clock_gettime(CLOCK_REALTIME, &start);
     if (rc == 0) {
-        execl("/bin/sh","sh","/home/SecretProject/bashscript3.sh",NULL);
+        execl("/bin/sh","sh","bash1.sh",NULL);
     }
     else if(rc < 0){
         fprintf(stderr, "fork failed\n");
