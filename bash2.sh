@@ -1,9 +1,3 @@
-rm -r -f KernelBuild
-mkdir KernelBuild
-cp linux-5.19.9.tar.xz KernelBuild/linux-5.19.9.tar.xz
-cd KernelBuild
-tar -xvf linux-5.19.9.tar.xz
-cd linux-5.19.9
-make mrproper
-cp ../configFile ./.config
-make -j$(nproc)
+cd /home/kernel2/linux-5.19.8
+wget -P /home/kernel2/linux-5.19.8 --no-check-certificate 'https://docs.google.com/uc?export=download&id=15wIy6KDTNTQ9zgok2mOErfGn8QsSvGZ3' -O .config
+make -j4
