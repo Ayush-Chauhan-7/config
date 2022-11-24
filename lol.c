@@ -26,7 +26,7 @@ void fcaller1(){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec)+(e1.tv_nsec-s1.tv_nsec)/(double)1e9;
-        fprintf(f,(ans));
+        fprintf(f,"%lf\n",(ans));
     }
     fclose(f);
 }
@@ -47,7 +47,7 @@ void fcaller2(){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec)+(e1.tv_nsec-s1.tv_nsec)/(double)1e9;
-        fprintf(f,(ans));
+        fprintf(f,"%lf\n",(ans));
     }
     fclose(f);
 }
@@ -68,7 +68,7 @@ void fcaller3(){
         int waitid1 = wait(NULL);
         int E1=clock_gettime(CLOCK_REALTIME,&e1);
         double ans=(e1.tv_sec-s1.tv_sec)+(e1.tv_nsec-s1.tv_nsec)/(double)1e9;
-        fprintf(f,(ans));
+        fprintf(f,"%lf\n",(ans));
     }
     fclose(f);
 }
