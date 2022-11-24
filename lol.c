@@ -12,7 +12,7 @@
 
 void fcaller1(){
     FILE *f;
-    f = fopen("times.txt","w");
+    f = fopen("times.txt","a");
     struct timespec s1,e1;
     int S1 = clock_gettime(CLOCK_REALTIME, &s1);
     int pid1 = fork();
@@ -33,7 +33,7 @@ void fcaller1(){
 
 void fcaller2(){
     FILE *f;
-    f = fopen("times.txt","w");
+    f = fopen("times.txt","a");
     struct timespec s1,e1;
     int S1 = clock_gettime(CLOCK_REALTIME, &s1);
     int pid2 = fork();
@@ -54,7 +54,7 @@ void fcaller2(){
 
 void fcaller3(){
     FILE *f;
-    f = fopen("times.txt","w");
+    f = fopen("times.txt","a");
     struct timespec s1,e1;
     int S1 = clock_gettime(CLOCK_REALTIME, &s1);
     int pid3 = fork();
