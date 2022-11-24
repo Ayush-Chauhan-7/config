@@ -78,7 +78,7 @@ int main(){
     else
     {
         int id2 = fork();
-        if(rc2==0)
+        if(id2==0)
         {
             fcaller2();
         }
