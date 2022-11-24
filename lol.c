@@ -19,7 +19,6 @@ void fcaller1(){
     sched_setscheduler(pid1,SCHED_OTHER,&schedp1);
     if (pid1 == 0){
         execlp("/bin/bash","sh","bash1.sh",NULL);
-        // sleep(10);
     }
     else if (pid1 > 0){
         int waitid1 = wait(NULL);
@@ -39,7 +38,6 @@ void fcaller2(){
     sched_setscheduler(pid2, SCHED_FIFO, &schedp2);
     if (pid2 == 0){
         execlp("/bin/bash","sh","bash2.sh",NULL);
-        // sleep(10);
     }
     else if(pid2 > 0){
         int waitid1 = wait(NULL);
@@ -59,7 +57,6 @@ void fcaller3(){
     sched_setscheduler(pid3,SCHED_RR,&schedp3);
     if (pid3 == 0){
         execlp("/bin/bash","sh","bash3.sh",NULL);
-        // sleep(10);
     }
     else if(pid3 > 0){
         int waitid1 = wait(NULL);
@@ -73,27 +70,28 @@ void fcaller3(){
 
 int main(){
     pid_t pid1, pid2, pid3;
-
-
-
-
-
-    pid1 = fork();
-    pid2 = fork();
-    pid3 = fork();
-    if(pid1==0 && pid2!=0 && pid3!=0){
-       fcaller1();
+    int id = fork();
+    if(id==0)
+    {
+        fcaller1();
     }
-
-    else if(pid2==0 && pid1!=0 && pid3!=0){
-        fcaller2();
-    }
-
-    else if(pid3==0 && pid2!=0 && pid1!=0){
-        fcaller3();
-    }
-    else{
-        printf("Exit\n");
+    else
+    {
+        int id2 = fork();
+        if(rc2==0)
+        {
+            fcaller2();
+        }
+        else
+        {
+            int id3 = fork();
+            if(id3==0)
+            {
+                fcaller3();
+            }
+            wait(NULL);
+        }
+        wait(NULL);
     }
 
 }
